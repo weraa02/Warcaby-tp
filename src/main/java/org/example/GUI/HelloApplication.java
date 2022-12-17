@@ -21,6 +21,10 @@ public class HelloApplication extends Application {
         launch(args);
     }
 
+    private final Button option1 = new Button("Warcaby polskie");
+    private final Button option2 = new Button("Warcaby dwuliniowe");
+    private final Button option3 = new Button("Warcaby hiszpańskie");
+
     @Override
     public void start(Stage stage) {
         //Layouty - zrobilam takie cos, ale zawsze mozna zmienic
@@ -43,9 +47,6 @@ public class HelloApplication extends Application {
         choice.setFont(Font.font("Bahnschrift", 20));
 
         //guziki i akcje
-        Button option1 = new Button("Warcaby polskie");
-        Button option2 = new Button("Warcaby dwuliniowe");
-        Button option3 = new Button("Warcaby hiszpańskie");
         EventHandler<ActionEvent> oknoprobaEH = new EventHandler<>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -72,4 +73,19 @@ public class HelloApplication extends Application {
         //stage.sizeToScene(); //dopasowuje okno do zawartosci - moze sie przydac pozniej
         stage.show();
     }
+    public String getOption1(){
+        String name=option1.getText();
+        return name;
+    }
+
+    public String getOption2(){
+        String name=option2.getText();
+        return name;
+    }
+
+    public String getOption3(){
+        String name=option3.getText();
+        return name;
+    }
+
 }

@@ -2,12 +2,15 @@ package org.example.Logic;
 
 import javafx.scene.control.Button;
 
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 public class Pawn implements MouseListener {
 
     Button pawn=new Button();
+    ArrayList<Rectangle> rectangles=new ArrayList<>();
 
     //naciśnięicie i zwolnienie przycisku myszy ale w jednym położeniu
     @Override

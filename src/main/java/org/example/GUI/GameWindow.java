@@ -11,11 +11,20 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import org.example.Data.Date;
 
-    public class GameWindow extends Application {
-        static int size = 10;   //usunac/zmienic/nadawac na biezaco
+import java.util.ArrayList;
+
+public class GameWindow extends Application {
+    private static Date date;
+
+         //usunac/zmienic/nadawac na biezaco
+        static ArrayList<Rectangle> rectangles=new ArrayList<>();
 
         public static void display() {
+
+            int size =date.getSize() ;
+
             Stage stage = new Stage();
 
             //layout
@@ -39,19 +48,25 @@ import javafx.stage.Stage;
             for(int i = 0; i < size; i++) {
                 for(int j = 0; j< size; j++){
                     Rectangle square = new Rectangle(50,50);
+                    rectangles.add(square);
                     if(((i+j)%2) ==0){
                         square.setFill(Color.BLUE);//byle jaki kolor dalam, byle rozne byly
                     }
                     board.add(square, i+1,j+1);
                 }
+
             }
 
             //dzialanie okna
             Scene scene = new Scene(root);
             stage.setTitle("Warcaby - rozgrywka");
             stage.setScene(scene);
-            stage.sizeToScene(); //dopasoeuje okno do zawartosci
+            stage.sizeToScene(); //dopasowuje okno do zawartosci
             stage.show();
+        }
+
+        public ArrayList<Rectangle> getRectangles(){
+            return rectangles;
         }
         //musi byc ponoc
         @Override
