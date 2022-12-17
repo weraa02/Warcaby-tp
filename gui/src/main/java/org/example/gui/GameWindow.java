@@ -1,8 +1,11 @@
 package org.example.gui;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
@@ -15,32 +18,39 @@ public class GameWindow extends Application {
     public static void display() {
         Stage stage = new Stage();
 
-        //layout i scena
+        //layout
         BorderPane root = new BorderPane(); //zeby mozna bylo pozniej cos dodac innego jeszcze np z boku
+        root.setBackground(new Background(new BackgroundFill(Color.BLANCHEDALMOND, null, null)));
+        root.setPadding(new Insets(25)); //marginesy
+
         GridPane board = new GridPane();//do samej planszy
+        //wypelnianie root
         root.setCenter(board);
-        Scene scene = new Scene(root, 40* size,40* size);
+        root.setLeft(null);
+        root.setRight(null);
+        root.setBottom(null);
 
-
-        //mozna zmianiac jakies polecenia itd
+        //mozna zrobic zeby zmieniać jakieś polecenia itd
         Label communication = new Label("Rozpoczęto rozgrywke");
         root.setTop(communication);
 
-        //dodaje kwadraty udajace plansze, zeby cos tam bylo
+        //zeby byla jakas zawartosc
+        //dodaje kwadraty udajace plansze - prawdopdobnie dodac klasy i pokombinować z StackPane
         for(int i = 0; i < size; i++) {
             for(int j = 0; j< size; j++){
-                Rectangle square = new Rectangle(40,40);
+                Rectangle square = new Rectangle(50,50);
                 if(((i+j)%2) ==0){
-                    square.setFill(Color.BLUE);
+                    square.setFill(Color.BLUE);//byle jaki kolor dalam, byle rozne byly
                 }
                 board.add(square, i+1,j+1);
             }
         }
 
         //dzialanie okna
+        Scene scene = new Scene(root);
         stage.setTitle("Warcaby - rozgrywka");
-        stage.setScene(scene); //WIELKOSC okna
-        //stage.sizeToScene(); //dopasoeuje okno do zawartosci - moze sie przydac pozniej, teraz nie bardzo dziala
+        stage.setScene(scene);
+        stage.sizeToScene(); //dopasoeuje okno do zawartosci
         stage.show();
     }
     //musi byc ponoc
