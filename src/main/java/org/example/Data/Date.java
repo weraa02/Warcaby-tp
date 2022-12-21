@@ -12,13 +12,16 @@ public class Date {
     private void setSize(){
         HelloApplication helloApplication=new HelloApplication();
         if(Objects.equals(helloApplication.getOption1(), "Warcaby polskie")){
-            size=100;
+            //size=100;
+            size = 10;
         }
         else if((Objects.equals(helloApplication.getOption2(), "Warcaby dwuliniowe"))||(Objects.equals(helloApplication.getOption3(), "Warcaby hiszańskie"))){
-            size=64;
+            //size=64;
+            size = 8;
         }
 
     }
+    //pozmieniałam size tak by zamiast iloscia wszystkich pol, byl tylko dlugoscia jednego boku, jest wtedy bardziej uzyteczny i nie trzeba liczyc pierawiastok itd
 
     public int getSize(){
         setSize();

@@ -47,18 +47,23 @@ public class HelloApplication extends Application {
         choice.setFont(Font.font("Bahnschrift", 20));
 
         //guziki i akcje
-        EventHandler<ActionEvent> oknoprobaEH = new EventHandler<>() {
+        EventHandler<ActionEvent> oknoprobaEH = actionEvent -> {
+
+            GameWindow.display();
+            stage.hide();
+
+        };
+        option1.setOnAction(oknoprobaEH);
+
+        EventHandler<ActionEvent> wypelniacz = new EventHandler<>() {   //ZROBIC
             @Override
             public void handle(ActionEvent actionEvent) {
-
-                GameWindow.display();
-                stage.hide();
+                System.out.println("Coming soon");
 
             }
         };
-        option1.setOnAction(oknoprobaEH);
-        option2.setOnAction(oknoprobaEH); //
-        option3.setOnAction(oknoprobaEH); //
+        option2.setOnAction(wypelniacz); //
+        option3.setOnAction(wypelniacz); //
 
         //dodawanie elementow
         forbuttons.getChildren().add(option1);
