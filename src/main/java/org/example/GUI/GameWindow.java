@@ -33,11 +33,11 @@ public class GameWindow extends Application {
 
         //tworzy plansze (wstepny plan - stworzyc Buildera i zamiast size podawać odpoweidnie parametry)
         //GridPane board = new Board(size);
-        Board board = new Board(size);
-        rectangles = board.getList();
+        //Board board = new Board(size);
+        //rectangles = board.getList();
 
         //wypelnianie root
-        root.setCenter(board);
+        //root.setCenter(board);
         root.setLeft(null);
         root.setRight(null);
         root.setBottom(null);

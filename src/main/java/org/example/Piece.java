@@ -2,11 +2,13 @@ package org.example;
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+//dodac eventhandlery (z klasy pawn?), dodac nowe pola
 
+//
 public class Piece extends Circle {
 
     private typecolor type;
-    enum typecolor{
+    public enum typecolor{
         WHITE,BLACK
     }
 
@@ -36,9 +38,9 @@ public class Piece extends Circle {
         return color;
     }
 
-    Piece(){
+    public Piece(typecolor tc) {
         super(20.0);
-        setcolortype(typecolor.WHITE);
+        setcolortype(tc);
 
     }
 
